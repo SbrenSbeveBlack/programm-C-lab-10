@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_NUM(arr, n) ({ \
+    int max = arr[0]; \
+    for (int i = 1; i < n; ++i) { \
+        if (arr[i] > max) { \
+            max = arr[i]; \
+        } \
+    } \
+    max; \
+})
+    int main() {
+        int numbers[100];
+        int n, i;
+        
+        printf("Enter number of numbers: ");
+        scanf("%d", &n);
+        printf("Enter num: ");
+        for (i=0;i<n;i++){
+            scanf("%d", &numbers[i]);
+        }
+        
+    printf("Максимальное число: %d\n", MAX_NUM(numbers, n));
+
+    return 0;
+}
