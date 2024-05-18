@@ -1,27 +1,37 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX_NUM(arr, n) ({ \
+#define max_num(arr, n) ({ \
     int max = arr[0]; \
     for (int i = 1; i < n; ++i) { \
         if (arr[i] > max) { \
             max = arr[i]; \
         } \
     } \
-    max; \
+    max;\
 })
-    int main() {
-        int numbers[100];
-        int n, i;
-        
-        printf("Enter number of numbers: ");
-        scanf("%d", &n);
-        printf("Enter num: ");
-        for (i=0;i<n;i++){
-            scanf("%d", &numbers[i]);
-        }
-        
-    printf("Максимальное число: %d\n", MAX_NUM(numbers, n));
 
-    return 0;
+#define average(arr, n) ({\
+    int sum = 0; \
+    for (int i = 0; i < n; ++i) { \
+        sum += arr[i]; \
+    } \
+    (float)sum / n;\
+})
+
+int main() {
+    int numbers[100];
+    int n, i;
+    
+    printf("Введите количество чисел: ");
+    scanf("%d", &n);
+    printf("Вводите числа: ");
+    for (i=0;i<n;i++){
+        scanf("%d", &numbers[i]);
+    }
+    
+printf("Максимальное число: %d\n", max_num(numbers, n));
+printf("Среднее арифметическое: %.2f\n", average(numbers, n));
+
+return 0;
 }
